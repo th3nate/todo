@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {AuthGuardService} from '../auth/auth-guard.service';
+import {AuthGuardService} from '../@shared/guards/auth-guard.service';
 
 @NgModule({
     imports: [

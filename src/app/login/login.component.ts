@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import config from '../auth/okta.config';
+import config from '../../../okta.config';
 import * as OktaSignIn from '@okta/okta-signin-widget';
 
 @Component({
@@ -33,12 +33,12 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.signIn.renderEl(
-            {el: '#sign-in-widget'},
-            () => {
-            },
-            (err) => {
-                throw err;
-            }
+                {el: '#sign-in-widget'},
+                () => {
+                },
+                (err) => {
+                    throw err;
+                }
         );
     }
 

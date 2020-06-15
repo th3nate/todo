@@ -1,1 +1,20 @@
-<p>board works!</p>
+<div class="row justify-content-center mb-3">
+    <button mat-raised-button (click)="createTodo()">Add todo</button>
+</div>
+<div class="card-deck mb-3 text-center">
+    <div *ngFor="let todo of todoDataService.todos" class="card mb-4 shadow-sm">
+        <div class="card-header">
+            <h4 class="my-0 font-weight-normal d-inline-block">{{todo.title}}</h4>
+            <button class="position-relative d-inline-block" mat-button matSuffix mat-icon-button (click)="updateTodo(todo)">
+                <mat-icon>mode_edit</mat-icon>
+            </button>
+            <button class="position-relative d-inline-block" mat-button matSuffix mat-icon-button (click)="deleteTodo(todo)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+        <div class="card-body">
+            {{todo.text}}
+        </div>
+    </div>
+
+</div>

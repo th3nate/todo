@@ -8,7 +8,7 @@ import {AppComponent} from './app.component';
 import {LoginModule} from './login/login.module';
 import {BoardModule} from './board/board.module';
 import {OKTA_CONFIG, OktaAuthModule} from '@okta/okta-angular';
-import config from './auth/okta.config';
+import config from '../../okta.config';
 
 @NgModule({
     declarations: [
@@ -23,7 +23,7 @@ import config from './auth/okta.config';
         AppRoutingModule,
     ],
     providers   : [
-        {provide: OKTA_CONFIG, useValue: config.oidc},
+        {provide: OKTA_CONFIG, useValue: config.oidc}
     ],
     bootstrap   : [AppComponent]
 })
