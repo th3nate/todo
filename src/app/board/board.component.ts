@@ -14,7 +14,7 @@ import {TodoInterface} from '../todo/interfaces/todo.interface';
 export class BoardComponent implements OnInit {
     todoForm: FormGroup;
 
-    constructor(private todoDataService: TodoDataService,
+    constructor(public todoDataService: TodoDataService,
                 private dialog: MatDialog) {
     }
 
@@ -55,6 +55,13 @@ export class BoardComponent implements OnInit {
     deleteTodo(todo: TodoInterface): void {
         this.todoDataService.deleteById(todo.id);
         this.initForm(); // reset form after delete
+    }
+
+    trackByCreatedOn(index: number, todo: TodoInterface): Date {
+        if (!todo) {
+            return;
+        }
+        return todo.createdOn;
     }
 
     initForm(): void {

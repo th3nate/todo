@@ -3,5 +3,4 @@ export interface TodoInterface {
     title: string;
     text: string;
     createdOn: Date;
-    completed: boolean;
 }

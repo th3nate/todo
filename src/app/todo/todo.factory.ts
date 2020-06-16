@@ -1,7 +1,6 @@
 import {TodoInterface} from './interfaces/todo.interface';
 
 export class Todo implements TodoInterface {
-    public completed: boolean;
     public createdOn: Date;
     public id: number;
     public title: string;
@@ -12,7 +11,6 @@ export class Todo implements TodoInterface {
         this.title     = title;
         this.text      = text;
         this.createdOn = new Date();
-        this.completed = false;
     }
 }
 
