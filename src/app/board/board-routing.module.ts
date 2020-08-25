@@ -4,16 +4,16 @@ import {BoardComponent} from './board.component';
 import {AuthGuardService} from '../@shared/guards/auth-guard.service';
 
 const routes: Routes = [
-    {
-        path       : 'board',
-        component  : BoardComponent,
-        canActivate: [AuthGuardService]
-    }
+  {
+    path       : 'board',
+    component  : BoardComponent,
+    canActivate: [AuthGuardService]
+  }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
 export class BoardRoutingModule {
 }

@@ -13,7 +13,7 @@
                     </mat-form-field>
                     <mat-form-field class="d-block mb-3">
                         <mat-label>Todo text</mat-label>
-                        <textarea matInput placeholder="Enter text" formControlName="text"></textarea>
+                        <textarea matInput placeholder="Enter text" formControlName="text" rows="4"></textarea>
                         <mat-error *ngIf="dialogData.form.get('text').hasError('required')">
                             This field is required
                         </mat-error>

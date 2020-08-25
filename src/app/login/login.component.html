@@ -1,6 +1,30 @@
-<div class="row justify-content-center">
-    <mat-card class="signin-card col mb-5 mt-5">
-        <div id="sign-in-widget"></div>
-    </mat-card>
-
+<app-nav></app-nav>
+<div class="container-fluid">
+    <div class="row justify-content-center" *ngIf="!isAuthenticated">
+        <mat-card class="signin-card col mb-5 mt-5">
+            <mat-card-content>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+                    <h3>Log In</h3>
+                    <pre class="alert-info p-2">Email: john.doe@testapp.com
+Password: QweAsd123</pre>
+                    <mat-error *ngIf="loginInvalid">
+                        The username and password were not recognised
+                    </mat-error>
+                    <mat-form-field class="full-width-input">
+                        <input matInput placeholder="Email" formControlName="username" required autocomplete="off">
+                        <mat-error>
+                            Please provide a valid email address
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="password" placeholder="Password" formControlName="password" required autocomplete="off">
+                        <mat-error>
+                            Please provide a valid password
+                        </mat-error>
+                    </mat-form-field>
+                    <button class="mt-2" mat-raised-button color="primary">Login</button>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>

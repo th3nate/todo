@@ -1,13 +1,15 @@
 import {environment} from './src/environments/environment';
 
 export default {
-    oidc          : {
-        clientId   : `${environment.CLIENT_ID}`,
-        issuer     : `${environment.ISSUER}`,
-        redirectUri: 'http://localhost:4200/implicit/callback',
-        scopes     : ['openid', 'profile', 'email'],
-        testing    : {
-            disableHttpsCheck: `${environment.OKTA_TESTING_DISABLEHTTPSCHECK}`
-        }
+  oidc: {
+    clientId   : `${environment.OKTA_CLIENT_ID}`,
+    issuer     : `${environment.OKTA_ISSUER}`,
+    redirectUri: `${environment.OKTA_REDIRECT_URI}`,
+    returnUrl  : `${environment.OKTA_RETURN_URL}`,
+    ownerEmail : `${environment.OKTA_OWNER_EMAIL}`,
+    scopes     : ['openid', 'profile', 'email'],
+    testing    : {
+      disableHttpsCheck: `${environment.OKTA_TESTING_DISABLEHTTPSCHECK}`
     }
+  }
 };

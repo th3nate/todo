@@ -1,18 +1,17 @@
 import {Injectable} from '@angular/core';
 import {CanActivate, Router} from '@angular/router';
-import {OktaAuthService} from '@okta/okta-angular';
+import {AuthService} from '../../@core/services/auth.service';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-    constructor(private readonly router: Router, public oktaAuth: OktaAuthService) { }
+  constructor(public authService: AuthService, public router: Router) {
+  }
 
-    async canActivate(): Promise<boolean> {
-        const isAuthenticated = await this.oktaAuth.isAuthenticated();
-
-        if (!isAuthenticated) {
-            await this.router.navigate(['login']);
-            return false;
-        }
-        return true;
+  async canActivate() {
+    if (!await this.authService.checkAuthenticated()) {
+      await this.router.navigate(['login']);
+      return false;
     }
+    return true;
+  }
 }

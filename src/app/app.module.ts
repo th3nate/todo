@@ -7,25 +7,19 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginModule} from './login/login.module';
 import {BoardModule} from './board/board.module';
-import {OKTA_CONFIG, OktaAuthModule} from '@okta/okta-angular';
-import config from '../../okta.config';
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
-    imports     : [
-        CoreModule,
-        SharedModule,
-        OktaAuthModule,
-        LoginModule,
-        BoardModule,
-        AppRoutingModule,
-    ],
-    providers   : [
-        {provide: OKTA_CONFIG, useValue: config.oidc}
-    ],
-    bootstrap   : [AppComponent]
+  declarations: [
+    AppComponent
+  ],
+  imports     : [
+    CoreModule,
+    SharedModule,
+    LoginModule,
+    BoardModule,
+    AppRoutingModule,
+  ],
+  bootstrap   : [AppComponent]
 })
 export class AppModule {
 }

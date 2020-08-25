@@ -1,29 +1,23 @@
 import {Component, OnInit} from '@angular/core';
-import {OktaAuthService} from '@okta/okta-angular';
+import config from '../../okta.config';
 import {Router} from '@angular/router';
+import {AuthService} from './@core/services/auth.service';
 
 @Component({
-    selector   : 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls  : ['./app.component.scss']
+  selector   : 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls  : ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-    isAuthenticated: boolean;
+  public isAuthenticated: boolean;
 
-    constructor(public oktaAuth: OktaAuthService, private readonly router: Router) {
-        this.oktaAuth.$authenticationState.subscribe(isAuthenticated => this.isAuthenticated = isAuthenticated);
+  constructor(private authService: AuthService, private router: Router) {
+  }
+
+  async ngOnInit() {
+    this.isAuthenticated = await this.authService.checkAuthenticated();
+    if (this.isAuthenticated) {
+      await this.router.navigate([config.oidc.returnUrl]);
     }
-
-    async ngOnInit() {
-        this.isAuthenticated = await this.oktaAuth.isAuthenticated();
-        if (!!this.isAuthenticated) {
-            await this.router.navigate(['board']);
-            return false;
-        }
-    }
-
-    async logout() {
-        await this.oktaAuth.logout('/');
-    }
-
+  }
 }

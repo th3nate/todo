@@ -1,12 +1,1 @@
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-normal">Todo App</h5>
-    <nav class="my-2 my-md-0 mr-md-3">
-        <button mat-button class="mr-3" *ngIf="isAuthenticated" routerLink="/board">Board</button>
-        <button mat-stroked-button color="primary" *ngIf="!isAuthenticated" routerLink="/login">Login</button>
-        <button mat-stroked-button color="primary" *ngIf="isAuthenticated" (click)="logout()">Logout</button>
-    </nav>
-</div>
-
-<div class="container-fluid">
-    <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>
